@@ -1,19 +1,19 @@
 {
-    "token": "MTE5OTczNTYwMDk0NTg0MDE3OA.GPWwsl.-NoKGCCRIpoygICtWUtKWuGStQ0F6VueUii2yA",
-    "prefix": "#",
-    "mongooseConnectionString": "mongodb+srv://Abo7meed:0544531221r@cluster0.7fiagbm.mongodb.net/?retryWrites=true&w=majority",
+    "token": "=================",
+    "prefix": "prefix",
+    "mongooseConnectionString": "mongodb+srv://<name>:<pass>@cluster0.7fiagbm.mongodb.net/?retryWrites=true&w=majority",
 
 
 
-    "log": "1212957458394513418",
-    "idroleban": "1213948817993506896",
-    "banman": "1213949095073292350", 
-    "notenable": "1212956079084929044",
-    "lspd": "1213948774553231410",
-    "a7oal": "1213948774553231410",
-    "haw3":"1212957458394513418",
-    "mws": "1213949239395225701",
-    "mwsManger": "1213949265425080361",
-    "highcommand": "1213948678742745108",
-    "idchannel": "1212957458394513418"
+    "log": "logblacklist",
+    "idroleban": "idroleban",
+    "banman": "idrolebanmanegr", 
+    "notenable": "idrolenotenable",
+    "lspd": "idrolelspd",
+    "a7oal": "idroleCivilaffairs",
+    "haw3":"idchannellogid",
+    "mws": "idrolemws",
+    "mwsManger": "idrolemwsManegr",
+    "highcommand": "idrolehighcommandlspd",
+    "idchannel": "idchannelIrregularities"
 }
