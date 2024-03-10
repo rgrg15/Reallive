@@ -1,0 +1,66 @@
+const WarnModel = require("../../models/shop");
+const { MessageEmbed } = require("discord.js")
+const moment = require("moment")
+module.exports = {
+    name: "المخالفات", 
+    
+run: async (client, message) => {
+    if(!message.member.roles.cache.has('1151150614336774224') || !message.member.roles.cache.has('1151151351569596487') ) return;
+
+const user = message.mentions.members.first() 
+if(user) {
+    const userwarnings = await WarnModel.find({
+            userId: user.id,
+        guildId: message.guild.id,
+    });
+    if (!userwarnings?.length) return message.reply({content:`** لايوجد مخالفات لهذا الشخص ** ${user} ⚠️`}) 
+    const embedsetDescription = userwarnings.map((data) => {
+        const userId = message.guild.members.cache.get(data.userId)
+    
+
+    return [
+        `الشخص الذي خالف: ${userId}`, 
+        `رقم المخالفه   : ${data.idoffer}, `, 
+        
+        `المخالفه : ${data.offer}`, 
+        `شخص المخالف لامر مروري : <@${data.userm}>`,
+       
+     ].join("\n");
+})
+.join("\n\n");
+    
+    const warnings = new MessageEmbed()
+.setTitle(`جميع مخالفات ${user}`)
+    .setDescription(embedsetDescription)
+.setColor("RANDOM")
+    message.channel.send({embeds: [warnings]})
+    //السي
+}else {
+    const userwarnings = await WarnModel.find({
+        guildId: message.guild.id,
+    });
+    if (!userwarnings?.length) return message.reply({content:`** لايوجد مخالفات لهذا سيرفر !**  ⚠️`}) 
+    const embedsetDescription = userwarnings.map((data) => {
+        const userId = message.guild.members.cache.get(data.userId)
+    
+
+    return [
+            `الشخص الذي خالف: ${userId}`, 
+        `رقم المخالفه   : ${data.idoffer}, `, 
+        
+        `المخالفه : ${data.offer}`, 
+        `شخص المخالف لامر مروري : <@${data.userm}>`,
+       
+     ].join("\n");
+    })
+.join("\n\n");
+    
+    const warnings = new MessageEmbed()
+.setTitle(`مخالفات المدينه`)
+    .setDescription(embedsetDescription)
+.setColor("RED")
+    message.channel.send({embeds: [warnings]})
+}
+
+}
+}
